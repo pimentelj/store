@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
     {
         DB::table('products')->insert([
             'name' => 'Computador de Escritorio',
-            'price' => 3299000,
+            'price' => 10000,
             'image' => './images/PC.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()

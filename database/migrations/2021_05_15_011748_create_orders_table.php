@@ -18,9 +18,11 @@ class CreateOrdersTable extends Migration
             $table->string('customer_name', 80);
             $table->string('customer_email', 120);
             $table->string('customer_mobile', 40);
-            $table->string('status', 20);
+            $table->string('status', 20)->nullable();
             $table->bigInteger('amount')->unsigned();
-            $table->string('description');
+            $table->bigInteger('placetopay_id')->nullable();
+            $table->string('placetopay_url')->nullable();
+            $table->string('placetopay_status', 20)->nullable();
             $table->timestamps();
             
             $table->engine = 'InnoDB';

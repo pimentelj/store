@@ -46,29 +46,30 @@
                 Información del comprador
             </div>
             <div class="card-body">
-                <form action="{{route('order.store')}}" method="post">
+                <form action="{{route('order.resume')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="customer_name">Nombres Completos</label>
-                        <input type="text" class="form-control @error('customer_name') is-invalid @enderror" name="customer_name" id="customer_name" aria-describedby="customer_name">
+                        <input type="text" class="form-control @error('customer_name') is-invalid @enderror" name="customer_name" id="customer_name" value="{{old('customer_name')}}" aria-describedby="customer_name">
                         @error('customer_name')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="customer_email">Correo Electronico</label>
-                        <input type="email" class="form-control @error('customer_email') is-invalid @enderror" name="customer_email" id="customer_email">
+                        <input type="email" class="form-control @error('customer_email') is-invalid @enderror" name="customer_email" id="customer_email" value="{{old('customer_email')}}">
                         @error('customer_email')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="customer_mobile">Número Celular</label>
-                        <input type="text" class="form-control @error('customer_mobile') is-invalid @enderror" name="customer_mobile" id="customer_mobile">
+                        <input type="text" class="form-control @error('customer_mobile') is-invalid @enderror" name="customer_mobile" id="customer_mobile" value="{{old('customer_mobile')}}">
                         @error('customer_mobile')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <input type="hidden" name="amount" value="{{$total}}" />
                     <input type="submit" class="btn btn-primary" value="Enviar">
                 </form>
             </div>

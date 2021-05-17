@@ -19,5 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ProductController@index')->name('catalog');
 Route::get('buy/{id}', 'ShoppingCarController@add')->name('buy');
+
+Route::get('order/list', 'OrderController@index')->name('order.index');
 Route::get('order/create', 'OrderController@create')->name('order.create');
-Route::post('order', 'OrderController@store')->name('order.store');
+Route::post('order/resume', 'OrderController@resume')->name('order.resume');
+Route::get('order/response', 'OrderController@response')->name('order.response');
+Route::get('order/{id}', 'OrderController@show')->name('order.show');
+Route::post('order/payAgain', 'OrderController@payAgain')->name('order.pay.again');
+Route::post('order/pay', 'OrderController@store')->name('order.store');
