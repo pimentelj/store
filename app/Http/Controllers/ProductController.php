@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use App\Product;
 
 class ProductController extends Controller
@@ -15,6 +16,10 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('name')->get();
+        
+        if(Cache::has('products')){
+            Cache::flush();
+        }
         
         return view('catalog', ['products' => $products]);
     }

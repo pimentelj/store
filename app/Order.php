@@ -12,4 +12,8 @@ class Order extends Model
     {
         return $this->belongsToMany('App\Product', 'cars');
     }
+    
+    public function newOrder($request){
+        
+    }
 }

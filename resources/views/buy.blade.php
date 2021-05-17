@@ -36,7 +36,7 @@
                 <a href="{{route('catalog')}}" class="btn btn-primary btn-lg w-50">Ir al catálogo</a>
             </div>
             <div class="col px-md-5 text-center">
-                <a href="{{route('catalog')}}" class="btn btn-secondary btn-lg w-50">Pagar</a>
+                <a href="{{route('order.create')}}" class="btn btn-secondary btn-lg w-50">Pagar</a>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                 @php
                 $total = 0;
                 @endphp
-                <ul class="list-group" style="overflow-y: scroll; height: 300px;">
+                <ul class="list-group" style="/*overflow-y: scroll; height: 300px;*/">
                     @foreach($products as $product)
                     @php
                     $product = \App\Product::find($product);

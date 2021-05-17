@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ProductController@index')->name('catalog');
 Route::get('buy/{id}', 'ShoppingCarController@add')->name('buy');
+Route::get('order/create', 'OrderController@create')->name('order.create');
+Route::post('order', 'OrderController@store')->name('order.store');
