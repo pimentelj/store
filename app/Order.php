@@ -80,8 +80,10 @@ class Order extends Model
             $this->placetopay_status = $response->status()->status();
             if ($response->status()->isApproved()) {
                 $this->status = 'PAYED';
-            }elseif($response->status()->isRejected()){
-                $this->status = 'REJECTED';
+            }else{
+                if($response->status()->status() == 'REJECTED'){
+                    $this->status = 'REJECTED';
+                }
             }
             $this->save();
             
