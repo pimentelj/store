@@ -58,17 +58,7 @@ class OrderController extends Controller
     }
     
     public function store(Request $request)
-    { 
-        /*Validator::make($request->all(), [
-            'customer_name' => 'required|string',
-            'customer_email' => 'required|email',
-            'customer_mobile' => 'required|integer|min:3000000000|max:9999999999'
-        ], array(), [
-            'customer_name' => 'nombres completos',
-            'customer_email' => 'correo electronico',
-            'customer_mobile' => 'número celular'
-        ])->validate();*/
-        
+    {        
         if(Cache::has('products')){
             $products = Cache::get('products');            
         }else{
